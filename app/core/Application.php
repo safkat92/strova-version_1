@@ -27,9 +27,10 @@ class Application
         $request = trim($_SERVER['REQUEST_URI'], '/');
         if (!empty($request)){
             $url = explode('/', $request);
-            $this->controller = isset($url) ? $url[2] . 'Controller' : 'homeController';
-            $this->action = isset($url) ? $url[3] : 'index';
-            for ($i = 0; $i < 4; $i++){
+            var_dump($url);
+            $this->controller = isset($url) ? $url[1] . 'Controller' : 'homeController';
+            $this->action = isset($url) ? $url[2] : 'index';
+            for ($i = 0; $i < 3; $i++){
                 unset($url[$i]);
             }
             $this->params = !empty($url) ? array_values($url) : [];

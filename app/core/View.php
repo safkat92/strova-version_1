@@ -10,6 +10,15 @@ class View
         $this->view_file = $view_file;
         $this->view_data = $view_data;
     }
+
+    public function render()
+    {
+        if(file_exists(VIEW . $this->view_file . '.php')){
+            include(VIEW . $this->view_file . '.php');
+        } else {
+            echo (VIEW . $this->view_file . '.php');
+        }
+    }
 }
 
 ?>
